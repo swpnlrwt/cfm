@@ -1,0 +1,10 @@
+<li class="nav-item" *ngFor="let menu of submenu ">
+  <a [routerLink]="menu.Route ? menu.Route : null" class="nav-link nav-toggle">
+    <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
+    <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
+    <span class="title">{{menu.Name}}</span>
+    <span *ngIf="menu.Children != null && menu.Children.length > 0" class="arrow"></span>
+  </a>
+  <ul class="sub-menu" [metronic-submenu2]="menu.Children && menu.Children.length > 0" *ngIf="menu.Children && menu.Children.length > 0" style="display:inline !important;">
+  </ul>
+</li>

@@ -1,0 +1,15 @@
+<li *ngFor="let menu of submenu " [ngClass]="{'dropdown-submenu' :(menu.Children && menu.Children.length > 0) }">
+  <a (click)="menu.Exec(menu)" *ngIf="!(menu.Children && menu.Children.length > 0)">
+    <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
+    <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
+    {{ menu.Name}}
+  </a>
+  <a href="#" class="" *ngIf="menu.Children && menu.Children.length > 0">
+    <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
+    <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
+    {{ menu.Name}}
+  </a>
+  <ul class="dropdown-menu"  [metronic-submenu]="menu.Children" *ngIf="menu.Children && menu.Children.length > 0">
+  </ul>
+</li>
+

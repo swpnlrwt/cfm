@@ -1,0 +1,86 @@
+<div class="page-header navbar navbar-fixed-top">
+  <!-- BEGIN HEADER INNER -->
+  <div class="page-header-inner">
+    <!-- BEGIN LOGO -->
+    <div class="page-logo">
+      <a>
+        <img src="{{settings.layoutPath}}/img/logo.png" alt="logo" class="logo-default" />
+      </a>
+      <div class="menu-toggler sidebar-toggler">
+        <span></span>
+        <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+      </div>
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN HEADER SEARCH BOX -->
+    <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
+    <form class="search-form hide" action="#" method="GET">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search..." name="query">
+        <span class="input-group-btn">
+                    <a href="javascript:;" class="btn submit">
+                        <i class="icon-magnifier"></i>
+                    </a>
+                </span>
+      </div>
+    </form>
+    <!-- END HEADER SEARCH BOX -->
+    <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+    <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+      <span></span>
+    </a>
+    <!-- END RESPONSIVE MENU TOGGLER -->
+    <!-- BEGIN TOP NAVIGATION MENU -->
+    <div class="top-menu">
+      <ul class="nav navbar-nav pull-right">
+        <!-- BEGIN NOTIFICATION DROPDOWN -->
+        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+        <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+          <a href="#" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+            <i class="icon-bell"></i>
+            <span class="badge badge-default" *ngIf="menuService.getMenuConfig('alerts').length > 0"> {{menuService.getMenuConfig('alerts').length}} </span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-default" *ngIf="menuService.getMenuConfig('alerts').length > 0" [metronic-submenu]="menuService.getMenuConfig('alerts')"></ul>
+        </li>
+        <!-- END NOTIFICATION DROPDOWN -->
+        <!-- BEGIN LANGUAGE BAR -->
+        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+        <li class="dropdown dropdown-user " *ngIf="menuService.getMenuConfig('languages').length > 0">
+          <a href="#" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+            <img *ngIf="menuService.getActive('languages') != null && menuService.getActive('languages').IconSource != null" alt="" class="img-circle" src="{{ menuService.getActive('languages').IconSource}}" />
+            <i *ngIf="menuService.getActive('languages') != null && menuService.getActive('languages').IconClass != null" class="{{ menuService.getActive('languages').IconClass }}"></i>
+            <span class="username username-hide-on-mobile"> {{menuService.getActive('languages').Name }}</span>
+            <i class="fa fa-angle-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-default" *ngIf="menuService.getMenuConfig('languages').length > 0" [metronic-submenu]="menuService.getMenuConfig('languages')">
+          </ul>
+        </li>
+        <!-- END LANGUAGE BAR -->
+        <!-- BEGIN USER LOGIN DROPDOWN -->
+        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+        <li class="dropdown dropdown-user" *ngIf="menuService.getMenuConfig('user').length > 0">
+          <a href="#" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+            <img *ngIf="menuService.getActive('user') != null && menuService.getActive('user').IconSource" alt="" class="img-circle" src="menuService.getActive('user').IconSource" />
+            <i *ngIf="menuService.getActive('user') != null && menuService.getActive('user').IconClass != null" class="{{ menuService.getActive('user').IconClass }}"></i>
+            <span class="username username-hide-on-mobile"> {{menuService.getActive('user').Name }}</span>
+            <i class="fa fa-angle-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-default multi-level" *ngIf="menuService.getMenuConfig('user').length > 0" [metronic-submenu]="menuService.getMenuConfig('user')">
+          </ul>
+        </li>
+        <!-- END USER LOGIN DROPDOWN -->
+        <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+        <li class="dropdown dropdown-quick-sidebar-toggler">
+          <a href="javascript:;" class="dropdown-toggle">
+            <i class="icon-logout"></i>
+          </a>
+        </li>
+
+        <!-- END QUICK SIDEBAR TOGGLER -->
+      </ul>
+    </div>
+    <!-- END TOP NAVIGATION MENU -->
+  </div>
+  <!-- END HEADER INNER -->
+</div>

@@ -1,0 +1,16 @@
+<nav class="quick-nav" *ngIf="menuService.getMenuConfig('quick').length > 0">
+  <a class="quick-nav-trigger" href="#">
+    <span aria-hidden="true"></span>
+  </a>
+  <ul>
+    <li *ngFor="let menu of menuService.getMenuConfig('quick')" >
+      <a href="#" target="_blank" class="">
+        <span>{{menu.Name}}</span>
+        <i *ngIf="menu.IconClass != null" class="{{ menu.IconClass }}"></i>
+        <img *ngIf="menu.IconSource != null" alt="" src="{{menu.IconSource}}">
+      </a>
+    </li>
+  </ul>
+  <span aria-hidden="true" class="quick-nav-bg"></span>
+</nav>
+<div class="quick-nav-overlay"></div>
